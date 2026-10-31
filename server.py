@@ -52,6 +52,8 @@ PORT=int(os.getenv('PORT','8080'))
 DATA=Path(os.getenv('DATA_DIR') or str(ROOT / 'data')).resolve()
 DATA.mkdir(parents=True,exist_ok=True)
 DB=DATA / 'orders.sqlite3'
+# Next new order starts at #2875 unless the database already has higher IDs.
+FIRST_ORDER_NUMBER=2875
 ADMIN_PASSWORD=os.getenv('ADMIN_PASSWORD','')
 PUBLIC_URL=os.getenv('PUBLIC_URL','http://localhost:8080').rstrip('/')
 IS_HTTPS=PUBLIC_URL.startswith('https://')
@@ -102,6 +104,13 @@ def init_db():
         cols={r['name'] for r in c.execute('PRAGMA table_info(orders)')}
         if 'messenger' not in cols:
             c.execute("ALTER TABLE orders ADD COLUMN messenger TEXT NOT NULL DEFAULT 'Не вказано'")
+        # Advance SQLite AUTOINCREMENT without changing or deleting existing orders.
+        # This is safe to run again on every server restart and on an existing database.
+        start_seq=FIRST_ORDER_NUMBER-1
+        c.execute("""INSERT INTO sqlite_sequence(name,seq)
+                     SELECT 'orders', ?
+                     WHERE NOT EXISTS (SELECT 1 FROM sqlite_sequence WHERE name='orders')""", (start_seq,))
+        c.execute("UPDATE sqlite_sequence SET seq=? WHERE name='orders' AND seq<?", (start_seq,start_seq))
 
 
 def rate_allowed(ip, category, limit, seconds):
