@@ -39,6 +39,38 @@ $('[data-review-next]').addEventListener('click',()=>moveReviews(carouselData(cu
 reviewTracks.forEach(track=>track.addEventListener('scroll',()=>{if(track===currentReviewTrack())requestAnimationFrame(updateCarouselUI)},{passive:true}));
 window.addEventListener('resize',updateCarouselUI);
 updateCarouselUI();
+
+// Gallery of five customer-chat screenshots, integrated with the reviews section.
+const chatCards=all('[data-chat-open]'),chatTrack=$('[data-chat-track]'),chatCount=$('[data-chat-count]');
+const chatDialog=$('#chat-proof-dialog'),modalImage=$('[data-chat-modal-image]'),modalCount=$('[data-chat-modal-count]');
+let chatModalIndex=0;
+function chatGeometry(){
+  const step=chatCards.length>1?chatCards[1].offsetLeft-chatCards[0].offsetLeft:(chatCards[0]?.offsetWidth||1);
+  const maxScroll=Math.max(0,chatTrack.scrollWidth-chatTrack.clientWidth);
+  const maxIndex=Math.max(0,Math.ceil(maxScroll/Math.max(1,step)));
+  const index=Math.max(0,Math.min(maxIndex,Math.round(chatTrack.scrollLeft/Math.max(1,step))));
+  return {step,index,maxIndex,maxScroll};
+}
+function updateChatCounter(){const {index}=chatGeometry();chatCount.textContent=String(index+1).padStart(2,'0')+' / 05'}
+function moveChats(direction){const {index,step,maxScroll}=chatGeometry();const target=(index+direction+chatCards.length)%chatCards.length;chatTrack.scrollTo({left:Math.min(target*step,maxScroll),behavior:'smooth'});setTimeout(updateChatCounter,300)}
+$('[data-chat-prev]').addEventListener('click',()=>moveChats(-1));
+$('[data-chat-next]').addEventListener('click',()=>moveChats(1));
+chatTrack.addEventListener('scroll',()=>requestAnimationFrame(updateChatCounter),{passive:true});
+window.addEventListener('resize',updateChatCounter);
+function setChatModal(index){
+  chatModalIndex=(index+chatCards.length)%chatCards.length;
+  const thumbnail=$('img',chatCards[chatModalIndex]);
+  modalImage.src=thumbnail.src;modalImage.alt=thumbnail.alt.replace('Скриншот','Збільшений скриншот');
+  modalCount.textContent=String(chatModalIndex+1).padStart(2,'0')+' / 05';
+}
+chatCards.forEach((card,i)=>card.addEventListener('click',()=>{setChatModal(i);chatDialog.showModal()}));
+$('[data-chat-close]').addEventListener('click',()=>chatDialog.close());
+$('[data-chat-modal-prev]').addEventListener('click',()=>setChatModal(chatModalIndex-1));
+$('[data-chat-modal-next]').addEventListener('click',()=>setChatModal(chatModalIndex+1));
+chatDialog.addEventListener('click',(e)=>{if(e.target===chatDialog)chatDialog.close()});
+chatDialog.addEventListener('keydown',(e)=>{if(e.key==='ArrowLeft'){e.preventDefault();setChatModal(chatModalIndex-1)}else if(e.key==='ArrowRight'){e.preventDefault();setChatModal(chatModalIndex+1)}});
+updateChatCounter();
+
 const service=$('select[name=service]');
 all('[data-service]').forEach(el=>el.addEventListener('click',()=>{service.value=el.dataset.service;$('#order').scrollIntoView({behavior:'smooth'});setTimeout(()=>service.focus({preventScroll:true}),450)}));
 const deadline=$('#deadline'),now=new Date(),localToday=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,10);

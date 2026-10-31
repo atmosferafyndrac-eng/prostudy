@@ -88,3 +88,52 @@
   .fb-top{transform:scale(.63) rotate(7deg)}
   .hero-buttons .btn{font-size:8px}
 }
+
+
+/* Five real, user-provided chat screenshots presented alongside text testimonials. */
+.chat-proof{margin-top:64px;padding:34px 0 8px;border-top:1px solid #e9e0f3}
+.chat-proof-header{display:flex;justify-content:space-between;align-items:end;gap:22px;margin-bottom:24px}
+.chat-proof-eyebrow{display:inline-flex;align-items:center;gap:8px;color:#6324d8;font:900 10px var(--font-display);letter-spacing:1px;margin-bottom:16px}
+.chat-proof-dot{width:8px;height:8px;background:var(--violet);border-radius:50%}
+.chat-proof h3{font:900 clamp(24px,3.3vw,38px)/1.12 var(--font-display);letter-spacing:-1.5px;margin:0 0 13px;color:var(--ink)}
+.chat-proof-header p{font:600 13px/1.75 var(--font-body);color:#71657f;max-width:520px;margin:0}
+.chat-proof-controls{display:flex;gap:10px;align-items:center;flex:none}
+.chat-proof-controls span{font:900 11px var(--font-display);color:#6235a8;margin-right:8px;white-space:nowrap}
+.chat-proof-controls button{border:1px solid #dac9f4;background:#f3edff;border-radius:50%;width:44px;height:44px;font-size:22px;color:#5d22cf;transition:background .15s,color .15s}
+.chat-proof-controls button:hover{background:#6223e7;color:#fff}
+.chat-proof-track{display:flex;gap:15px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:3px 2px 18px;overscroll-behavior-inline:contain;touch-action:pan-x pan-y}
+.chat-proof-track::-webkit-scrollbar{display:none}
+.chat-proof-card{display:flex;flex:none;flex-direction:column;width:clamp(210px,24.5vw,272px);border:1px solid #e5d9f7;border-radius:19px;overflow:hidden;scroll-snap-align:start;text-align:left;background:#faf7ff;color:#29173e;padding:7px;box-shadow:0 3px 18px #3712670b;transition:box-shadow .2s,transform .2s}
+.chat-proof-card:hover{transform:translateY(-3px);box-shadow:0 13px 28px #3712671f}
+.chat-proof-image-wrap{display:block;width:100%;aspect-ratio:591 / 1280;border-radius:13px;overflow:hidden;background:#1b1526}
+.chat-proof-card img{display:block;width:100%;height:100%;object-fit:cover;object-position:center top}
+.chat-proof-card-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:15px 10px 9px;font:900 10px var(--font-display)}
+.chat-proof-card-bottom span{display:flex;gap:4px;align-items:center;color:#6321e4}
+.chat-proof-card-bottom .ui-arrow{width:13px;height:13px}
+.chat-proof-help{font:600 11px/1.6 var(--font-body);color:#8c7c9d;margin:1px 0 0}
+.chat-proof-card:focus-visible,.chat-proof-controls button:focus-visible,.chat-proof-dialog button:focus-visible{outline:3px solid #ad86ff;outline-offset:3px}
+.chat-proof-dialog{border:0;padding:0;background:#fff;border-radius:18px;box-shadow:0 40px 100px #0006;color:#26183a;width:min(560px,96vw);max-height:94dvh;overflow:hidden}
+.chat-proof-dialog::backdrop{background:#110922d9;backdrop-filter:blur(4px)}
+.chat-proof-dialog-toolbar{height:49px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;background:#f5efff;font:900 11px var(--font-display);color:#6326cb}
+.chat-proof-dialog-toolbar button{border:0;background:transparent;font:500 34px Arial;color:#3c225f;width:38px;height:40px;line-height:1}
+.chat-proof-dialog-picture{height:min(74dvh,810px);background:#21172b;display:flex;align-items:center;justify-content:center}
+.chat-proof-dialog-picture img{width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain}
+.chat-proof-dialog-footer{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:13px 14px;background:#fff;font:900 10px var(--font-display);color:#877496}
+.chat-proof-dialog-footer button{background:#f2ebff;border:1px solid #dfcff7;border-radius:8px;color:#6224da;padding:11px 13px;font:900 10px var(--font-display)}
+@media(max-width:630px){
+  .chat-proof{margin-top:43px;padding-top:30px}
+  .chat-proof-header{flex-direction:column;align-items:stretch;gap:18px;margin-bottom:16px}
+  .chat-proof h3{font-size:27px;line-height:1.17;letter-spacing:-1px}
+  .chat-proof-header p{font-size:12px}
+  .chat-proof-controls{justify-content:space-between}
+  .chat-proof-controls button{width:42px;height:42px}
+  .chat-proof-controls span{margin-right:auto}
+  .chat-proof-track{gap:11px;margin-right:-20px;padding-right:20px}
+  .chat-proof-card{width:min(78vw,293px);border-radius:15px}
+  .chat-proof-card-bottom{font-size:9px}
+  .chat-proof-dialog{width:96vw;max-height:92dvh;border-radius:12px}
+  .chat-proof-dialog-picture{height:75dvh}
+  .chat-proof-dialog-footer span{display:none}
+  .chat-proof-dialog-footer button{flex:1}
+}
+@media(prefers-reduced-motion:reduce){.chat-proof-track{scroll-behavior:auto}.chat-proof-card{transition:none}}
