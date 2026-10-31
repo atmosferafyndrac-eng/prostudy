@@ -149,3 +149,18 @@
   .reviews-badges{gap:8px;margin-bottom:18px}
   .reviews-badge{padding:10px 13px;font-size:9px}
 }
+
+
+/* Clear, minimal testimonials heading: one title and image carousel. */
+.reviews-head--simple{display:flex;align-items:end;justify-content:space-between;gap:26px;margin-bottom:25px}
+.reviews-head--simple h2{margin-bottom:12px}
+.reviews-short-note{margin:0;color:#71657f;font:600 13px/1.65 var(--font-body)}
+.reviews-head--simple .chat-proof-controls{margin-bottom:6px}
+.chat-proof-standalone{margin:0;padding:0;border:0}
+.chat-proof-standalone .chat-proof-track{padding-top:4px}
+@media(max-width:630px){
+  .reviews-head--simple{flex-direction:column;align-items:stretch;gap:15px;margin-bottom:14px}
+  .reviews-head--simple h2{font-size:clamp(25px,7.3vw,37px);line-height:1.13;letter-spacing:-1.1px;margin-bottom:10px}
+  .reviews-short-note{font-size:12px}
+  .reviews-head--simple .chat-proof-controls{margin:0;align-self:flex-end;justify-content:flex-end}
+}

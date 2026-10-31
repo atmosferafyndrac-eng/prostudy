@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/static/styles.css?v=8">
+  <link rel="stylesheet" href="/static/styles.css?v=9">
   <script src="/static/app.js?v=8" defer></script>
 </head>
 <body>
@@ -82,31 +82,19 @@
     
     <section id="reviews" class="section reviews-section" aria-labelledby="reviews-heading">
       <div class="container">
-        <div class="section-head reviews-head reviews-head--single">
+        <div class="section-head reviews-head reviews-head--simple">
           <div>
             <div class="eyebrow"><span class="purple-dot"></span> 04 / ВІДГУКИ</div>
-            <h2 id="reviews-heading">РЕАЛЬНІ ВІДГУКИ<br><span class="purple-text">У ПЕРЕПИСКАХ <svg class="ui-spark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.8v18.4M2.8 12h18.4M5.5 5.5l13 13M18.5 5.5l-13 13"/></svg></span></h2>
+            <h2 id="reviews-heading">ВІДГУКИ<br><span class="purple-text">НАШИХ КЛІЄНТІВ.</span></h2>
+            <p class="reviews-short-note">Гортай переписки та переглядай відгуки.</p>
           </div>
-          <p class="section-intro">Замість звичайних текстових відгуків — живі скриншоти листувань із клієнтами. Можна гортати, відкривати та дивитися крупно.</p>
-        </div>
-        <div class="reviews-badges" aria-label="Інформація про відгуки">
-          <span class="reviews-badge">Telegram / Viber / WhatsApp</span>
-          <span class="reviews-badge">18 скриншотів</span>
-          <span class="reviews-badge">Свайп + відкриття на весь екран</span>
-        </div>
-        <div class="chat-proof chat-proof-standalone" id="chat-proof" aria-labelledby="chat-proof-title">
-          <div class="chat-proof-header">
-            <div>
-              <span class="chat-proof-eyebrow"><span class="chat-proof-dot"></span> ПЕРЕПИСКИ КЛІЄНТІВ</span>
-              <h3 id="chat-proof-title">ВСЕ ВИГЛЯДАЄ<br><span class="purple-text">ЖИВО І ДОВІРЛИВО.</span></h3>
-              <p>Тут зібрані реальні фрагменти переписок. Так блок виглядає набагато сильніше, ніж просто текстові картки.</p>
-            </div>
-            <div class="chat-proof-controls" aria-label="Навігація скриншотів">
-              <span data-chat-count>01 / 18</span>
-              <button type="button" data-chat-prev aria-label="Попередній скриншот">←</button>
-              <button type="button" data-chat-next aria-label="Наступний скриншот">→</button>
-            </div>
+          <div class="chat-proof-controls" aria-label="Навігація відгуків">
+            <span data-chat-count>01 / 18</span>
+            <button type="button" data-chat-prev aria-label="Попередній відгук">←</button>
+            <button type="button" data-chat-next aria-label="Наступний відгук">→</button>
           </div>
+        </div>
+        <div class="chat-proof chat-proof-standalone" id="chat-proof" aria-label="Скриншоти відгуків клієнтів">
           <div class="chat-proof-track" data-chat-track role="region" aria-roledescription="карусель" aria-label="Скриншоти переписок" tabindex="0">
             <button class="chat-proof-card" type="button" data-chat-open="0" aria-label="Збільшити скриншот переписки 1 із 18">
               <span class="chat-proof-image-wrap"><img src="/static/review-images/chat-01.webp" width="591" height="1280" loading="lazy" decoding="async" alt="Скриншот листування з клієнтом, 1 із 18"></span>
@@ -181,7 +169,7 @@
               <span class="chat-proof-card-bottom"><b>ПЕРЕПИСКА 18</b><span>РОЗГЛЯНУТИ <svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></span></span>
             </button>
           </div>
-          <p class="chat-proof-help">← Гортай пальцем або стрілками. Натисни на будь-який скриншот, щоб збільшити →</p>
+          <p class="chat-proof-help">Гортай пальцем або стрілками · Натисни на скриншот, щоб збільшити</p>
         </div>
         <dialog class="chat-proof-dialog" id="chat-proof-dialog" aria-label="Перегляд скриншоту переписки">
           <div class="chat-proof-dialog-toolbar"><span data-chat-modal-count>01 / 18</span><button type="button" data-chat-close aria-label="Закрити перегляд">×</button></div>
