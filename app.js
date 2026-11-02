@@ -85,6 +85,9 @@ if(form && submit && notice) form.addEventListener('submit',async(e)=>{
   try{
     const res=await fetch('/api/orders',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
     const answer=await res.json();if(!res.ok)throw Error(answer.error||'Сталася помилка. Спробуй ще раз.');
+    if(answer.ok===true&&Number.isSafeInteger(answer.id)&&answer.id>0&&typeof window.fbq==='function'){
+      try{window.fbq('track','Lead')}catch(_){/* Tracking must not interrupt a saved order. */}
+    }
     form.reset();updateContact();
     show(`Дякуємо! Заявку №${answer.id} збережено. Ми напишемо тобі в ${data.messenger} за вказаним контактом.`, 'success');
     notice.scrollIntoView({behavior:'smooth',block:'nearest'});
