@@ -251,7 +251,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header('X-Frame-Options','DENY')
         self.send_header('Referrer-Policy','strict-origin-when-cross-origin')
         self.send_header('Cache-Control','no-store' if not content_type.startswith(('image/','text/css','application/javascript')) else 'public,max-age=300')
-        self.send_header('Content-Security-Policy',"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; frame-ancestors 'none'")
+        self.send_header('Content-Security-Policy',"default-src 'self'; script-src 'self' https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.facebook.com; connect-src 'self' https://www.facebook.com https://connect.facebook.net; form-action 'self'; base-uri 'self'; frame-ancestors 'none'")
         if length is not None:self.send_header('Content-Length',str(length))
         for k,v in (other or {}).items():self.send_header(k,v)
         self.end_headers()

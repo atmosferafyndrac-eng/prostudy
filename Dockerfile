@@ -1,7 +1,7 @@
 FROM python:3.12-alpine
 WORKDIR /app
 COPY server.py ./
-COPY index.html admin.html login.html privacy.html app.js admin.js login.js admin.css styles.css favicon.svg reviews.json ./static/
+COPY index.html admin.html login.html privacy.html app.js meta-pixel.js admin.js login.js admin.css styles.css favicon.svg reviews.json ./static/
 COPY chat-*.webp ./static/review-images/
 RUN mkdir -p /app/data /app/static/review-images && adduser -D -u 10001 app && chown -R app:app /app
 USER app
