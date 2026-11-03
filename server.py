@@ -38,7 +38,7 @@ GTM_SCRIPT_HASH = 'sha256-OppM19PY6o+/dMCJgvjqlCHME97BR6H222n/g30T5NY='
 META_PIXEL_SCRIPT_HASH = 'sha256-AIJVBvNlAH5O5CpyfUpic36n2IOPeNhJbSzDYrVdcGU='
 CONTENT_SECURITY_POLICY = '; '.join([
     "default-src 'self'",
-    f"script-src 'self' '{GTM_SCRIPT_HASH}' '{META_PIXEL_SCRIPT_HASH}' https://connect.facebook.net https://www.googletagmanager.com https://tagmanager.google.com https://www.googleadservices.com https://www.google.com",
+    f"script-src 'self' '{GTM_SCRIPT_HASH}' '{META_PIXEL_SCRIPT_HASH}' https://connect.facebook.net https://www.facebook.com/signals/iwl.js https://www.googletagmanager.com https://tagmanager.google.com https://www.googleadservices.com https://www.google.com",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.googletagmanager.com https://tagmanager.google.com",
     "font-src 'self' https://fonts.gstatic.com data:",
     "img-src 'self' data: https://www.facebook.com https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com https://*.g.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com https://ssl.gstatic.com https://www.gstatic.com",
