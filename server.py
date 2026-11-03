@@ -42,7 +42,7 @@ CONTENT_SECURITY_POLICY = '; '.join([
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.googletagmanager.com https://tagmanager.google.com",
     "font-src 'self' https://fonts.gstatic.com data:",
     "img-src 'self' data: https://www.facebook.com https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com https://*.g.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com https://ssl.gstatic.com https://www.gstatic.com",
-    "connect-src 'self' https://www.facebook.com https://connect.facebook.net https://mpc-prod-27-s6uit34pua-uk.a.run.app https://e5-cce25cf3b4a5476fbb3aaa2312efbe1a.ecs.us-east-2.on.aws https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com https://*.g.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com https://ad.doubleclick.net",
+    "connect-src 'self' https://www.facebook.com https://connect.facebook.net https://api.facebook.com https://graph.facebook.com https://mpc-prod-27-s6uit34pua-uk.a.run.app https://e5-cce25cf3b4a5476fbb3aaa2312efbe1a.ecs.us-east-2.on.aws https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com https://*.g.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com https://ad.doubleclick.net",
     "frame-src 'self' https://www.facebook.com https://www.googletagmanager.com",
     "form-action 'self' https://www.facebook.com",
     "base-uri 'self'",
